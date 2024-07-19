@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebSocket Chat</title>
+    <!-- Bootstrap -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-4">
+        <h1 class="text-center">WebSocket Chat</h1>
+        <div id="usernameSection" class="mb-3">
+            <input id="usernameInput" type="text" class="form-control" placeholder="Enter your username" autocomplete="off" />
+            <button id="setUsername" class="btn btn-primary mt-2">Set Username!</button>
+        </div>
+        <ul id="messages" class="list-unstyled border p-3 rounded"></ul>
+        <div class="d-flex align-items-center">
+            <form id="form" class="form-inline mt-3 d-none">
+                <input id="messageInput" type="text" class="form-control mr-2" placeholder="Type your message here..." autocomplete="off" />
+                <button type="submit" class="btn btn-primary">Send</button>
+            </form>
+        </div>
+    </div>
+
+<script>
+    let ws;
+    let username = '';
+
+    document.getElementById("setUsername").addEventListener("click", () => {
+        username = document.getElementById("usernameInput").value.trim();
+        if (username) {
+            document.getElementById("usernameSection").classList.add("d-none");
+            document.getElementById("form").classList.remove("d-none");
+            ws = new WebSocket("ws://localhost:8080/chat");
+
+            ws.onopen = () => {
+                console.log("Connected to the WebSocket server.");
+            };
+
+            ws.onmessage = (event) => {
+                const messagesList = document.getElementById("messages");
+                const messageItem = document.createElement("li");
+                messageItem.textContent = event.data;
+                messagesList.appendChild(messageItem);
+            };
+
+            ws.onclose = () => {
+                console.log("Disconnected from the WebSocket server.");
+            };
+
+            document.getElementById("form").addEventListener("submit", (event) => {
+                event.preventDefault();
+                const input = document.getElementById("messageInput");
+                const message = input.value;
+                if (message) {
+                    ws.send(JSON.stringify({ username, message })); // Send it for the backend to read
+                    input.value = "";
+                }
+            });
+        } else {
+            alert("Please enter a username.");
+        }
+    });
+</script>
+</body>
+</html>
