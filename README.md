@@ -57,7 +57,7 @@ https://github.com/user-attachments/assets/2d5f9dc5-514c-4353-8eda-5b8c8d08ab34
 ## <a name="todo">Todo</a>
 - [ ] Containerize with Docker
 - [ ] Add Mutlimedia sharing
-- [ ] Publish on a server
+- [ ] Publish on a Domain
 
 
 
