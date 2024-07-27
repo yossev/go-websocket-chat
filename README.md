@@ -7,6 +7,7 @@
 4. [API Endpoints](#api-endpoints)
 5. [Dependencies](#dependencies)
 6. [Example](#examples)
+7. [Todo](#todo)
 
 ## <a name="project-overview">Project Overview</a>
 This project is a WebSocket server written in Go. It allows real-time communication between clients and the server.
@@ -53,8 +54,9 @@ This project is a WebSocket server written in Go. It allows real-time communicat
 ## <a name="examples"> Video Example </a>
 https://github.com/user-attachments/assets/2d5f9dc5-514c-4353-8eda-5b8c8d08ab34
 
-
-
+## <a name="todo">Todo</a>
+- [ ] Containerize with Docker
+- [ ] Add Mutlimedia sharing
 
 
 
