@@ -43,6 +43,8 @@ This project is a WebSocket server written in Go. It allows real-time communicat
 2 - Run the HTML File using any `live preview` extension, [example](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer)
 
 ## <a name="api-endpoints">Api Endpoints </a>
+Coming Soon!
+
 ### Websocket Endpoint
 - Enpoint '/chat'
 - Method `GET`
@@ -55,7 +57,6 @@ This project is a WebSocket server written in Go. It allows real-time communicat
 https://github.com/user-attachments/assets/2d5f9dc5-514c-4353-8eda-5b8c8d08ab34
 
 ## <a name="todo">Todo</a>
-- [ ] Containerize with Docker
 - [ ] Add Mutlimedia sharing
 - [ ] Publish on a Domain
 
